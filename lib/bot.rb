@@ -2,7 +2,7 @@
 module Bot
   class Main
     def self.start(*args)
-      puts "start"
+      args.last.to_s
     end
   end
 end

@@ -1,6 +1,7 @@
 #!/usr/bin/env ruby
 # vi: set ft=ruby :
 
-require 'bot/bot'
-Bot.start
+require_relative '../bot.rb'
+
+Bot::Main.start
  
