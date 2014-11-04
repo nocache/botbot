@@ -28,8 +28,6 @@ module Bot
         when 'REPORT'
           puts state.report
 
-        else
-          raise Bot::UnknownCommandError
         end
       end
       state
