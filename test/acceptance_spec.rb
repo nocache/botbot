@@ -32,7 +32,12 @@ describe Bot do
     it 'A robot that is not on the table can choose the ignore the LEFT command'
     it 'A robot that is not on the table can choose the ignore the RIGHT command'
     it 'A robot that is not on the table can choose the ignore the REPORT command'
-    it 'robot must not fall off the table during initial placement of the toy robot'
+
+    it 'robot must not fall off the table during initial placement of the toy robot' do
+      state = Bot::Status.new(Bot::Tabletop.new(5,5))
+      state.place('10,2,EAST').x.must_equal 0
+    end
+
     it 'Any move that would cause the robot to fall must be ignored'
     it 'further valid movement commands after suidcidal command must still be allowed'
   end
