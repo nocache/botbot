@@ -1,6 +1,6 @@
 module Bot
   class Status
-    attr_accessor :x_pos, :y_pos, :direction
+    attr_accessor :x, :y, :direction
 
     DIRECTIONS = %w{ NORTH EAST SOUTH WEST } # Never Eat Soggy Weetbix. Cardinal points in CW from 12 o'clock
 
@@ -10,10 +10,10 @@ module Bot
     end
 
     def inspect
-      if @x_pos.nil? && @y_pos.nil? && @direction.nil?
+      if @x.nil? && @y.nil? && @direction.nil?
         ''
       else
-        "#{@x_pos},#{@y_pos},#{@direction}"
+        "#{@x},#{@y},#{@direction}"
       end
     end
 
@@ -38,13 +38,13 @@ module Bot
     def move
       case @direction
         when 'SOUTH'
-          @y_pos -= 1
+          @y -= 1
         when 'NORTH'
-          @y_pos += 1
+          @y += 1
         when 'WEST'
-          @x_pos -= 1
+          @x -= 1
         when 'EAST'
-          @x_pos += 1
+          @x += 1
         else
           # do nothing
       end
@@ -53,8 +53,8 @@ module Bot
 
     def place(where)
       coords = where.split(',')
-      @x_pos = coords[0].to_i
-      @y_pos = coords[1].to_i
+      @x = coords[0].to_i
+      @y = coords[1].to_i
       @direction = coords[2]
       self
     end
