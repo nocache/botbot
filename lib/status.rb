@@ -54,10 +54,15 @@ module Bot
 
     def place(where)
       coords = where.split(',')
-      @x = coords[0].to_i
-      @y = coords[1].to_i
-      @direction = coords[2]
+      self.x = coords[0].to_i
+      self.y = coords[1].to_i
+      self.direction = coords[2]
       self
+    end
+
+    def x=(new_x)
+      @x = new_x if (0..@world.width).cover? new_x
+      @x
     end
   end
 end
