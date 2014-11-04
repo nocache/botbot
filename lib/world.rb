@@ -3,6 +3,8 @@ module Bot
     attr_reader :height, :width
 
     def initialize(width=1, height=1)
+      raise ArgumentError('width') if width < 1
+      raise ArgumentError('height') if height < 1
       @height = height
       @width  = width
     end
