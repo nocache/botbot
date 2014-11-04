@@ -55,7 +55,16 @@ module Bot
       self.x = coords[0].to_i
       self.y = coords[1].to_i
       self.direction = coords[2]
+      unless @x && @y && @direction
+        # should ignore an invalid 'place' command altogther
+        @x, @y, @direction = nil
+      end
       self
+    end
+
+    def direction=(new_dir)
+      @direction = new_dir if DIRECTIONS.include?(new_dir)
+      @direction
     end
 
     def x=(new_x)
