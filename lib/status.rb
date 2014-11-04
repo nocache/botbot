@@ -2,6 +2,8 @@ module Bot
   class Status
     attr_accessor :x_pos, :y_pos, :direction
 
+    DIRECTIONS = %w{ NORTH EAST SOUTH WEST } # Never Eat Soggy Weetbix. Cardinal points in CW from 12 o'clock
+
     def initialize(world=nil)
       @world = world || World.new
       self
@@ -13,6 +15,10 @@ module Bot
       else
         "#{@x_pos},#{@y_pos},#{@direction}"
       end
+    end
+
+    def current_direction_index
+      DIRECTIONS.index(@direction)
     end
 
     # move 1 unit in direction facing
