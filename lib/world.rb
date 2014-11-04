@@ -1,18 +1,11 @@
 module Bot
   class World
-    def initialize(width=1, height=1)
-      raise ArgumentError('width') if width < 1
-      raise ArgumentError('height') if height < 1
-      @height = height
-      @width  = width
-    end
-
     def valid_x?(x)
-      (0..@width-1).cover? x
+      true
     end
 
     def valid_y?(y)
-      (0..@height-1).cover? y
+      true
     end
   end
 end
