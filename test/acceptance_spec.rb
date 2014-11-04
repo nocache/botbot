@@ -33,16 +33,25 @@ describe Bot do
     end
 
     describe 'A robot that is not on the table' do
-      before do
-        @bot = Bot::Main.call('NOOP')
+      subject do
+        Bot::Main.call('NOOP')
       end
 
       it 'can choose to ignore the MOVE command' do
-        @bot.move.to_s.must_be_empty
+        subject.move.to_s.must_be_empty
       end
-      it 'can choose to ignore the LEFT command'
-      it 'can choose to ignore the RIGHT command'
-      it 'can choose to ignore the REPORT command'
+
+      it 'can choose to ignore the LEFT command' do
+        subject.left.to_s.must_be_empty
+      end
+
+      it 'can choose to ignore the RIGHT command' do
+        subject.right.to_s.must_be_empty
+      end
+
+      it 'can choose to ignore the REPORT command' do
+        subject.report.to_s.must_be_empty
+      end
     end
 
     it 'robot must not fall off the table during initial placement of the toy robot' do

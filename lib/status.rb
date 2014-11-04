@@ -84,7 +84,7 @@ module Bot
 
     private
     def _rotate(dir)
-      @direction = DIRECTIONS[ (current_direction_index + dir) % DIRECTIONS.size ]
+      @direction = DIRECTIONS[ (current_direction_index + dir) % DIRECTIONS.size ] if @direction
       self
     end
   end
