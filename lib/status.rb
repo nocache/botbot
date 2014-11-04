@@ -39,13 +39,13 @@ module Bot
     def move
       case @direction
         when 'SOUTH'
-          @y -= 1
+          self.y -= 1
         when 'NORTH'
-          @y += 1
+          self.y += 1
         when 'WEST'
-          @x -= 1
+          self.x -= 1
         when 'EAST'
-          @x += 1
+          self.x += 1
         else
           # do nothing
       end
