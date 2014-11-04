@@ -11,7 +11,7 @@ module Bot
       world = Tabletop.new(5,5)
       state = Status.new(world)
       state = Runner.run(commands, state, options)
-      state.inspect
+      state
     end
   end
 end

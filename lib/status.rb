@@ -11,14 +11,19 @@ module Bot
       self
     end
 
-    def inspect
+    def to_s
       if @x.nil? && @y.nil? && @direction.nil?
         ''
       else
         "#{@x},#{@y},#{@direction}"
       end
     end
-    alias_method :report, :inspect
+    alias_method :inspect, :to_s
+
+    def report
+      puts inspect
+      self
+    end
 
     def current_direction_index
       DIRECTIONS.index(@direction)
