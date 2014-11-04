@@ -10,11 +10,14 @@ module Bot
         when ''
           # do nothing
 
-        when 'REPORT'
-          puts state.inspect
+        when 'MOVE'
+          state.move
 
         when /^PLACE\s(.+)$/
           state.place($1)
+
+        when 'REPORT'
+          puts state.inspect
 
         else
           raise Bot::UnknownCommandError
