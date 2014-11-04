@@ -21,6 +21,12 @@ module Bot
       DIRECTIONS.index(@direction)
     end
 
+    def left
+      # left is CCW
+      @direction = DIRECTIONS[ (current_direction_index - 1) % DIRECTIONS.size ]
+      self
+    end
+
     # move 1 unit in direction facing
     # 0,0 is south-west corner
     def move
