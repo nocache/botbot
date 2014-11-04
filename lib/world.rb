@@ -8,11 +8,11 @@ module Bot
     end
 
     def valid_x?(x)
-      (0..@width).cover? x
+      (0..@width-1).cover? x
     end
 
     def valid_y?(y)
-      (0..@height).cover? y
+      (0..@height-1).cover? y
     end
   end
 end

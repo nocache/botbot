@@ -51,6 +51,9 @@ describe Bot do
       state.move.report.must_equal '0,0,SOUTH'
     end
 
-    it 'further valid movement commands after suidcidal command must still be allowed'
+    it 'further valid movement commands after suidcidal command must still be allowed' do
+      commands = [ 'PLACE 4,4,EAST', 'MOVE', 'RIGHT', 'MOVE', 'REPORT' ]
+      Bot::Main.start(commands).must_equal '4,3,SOUTH'
+    end
   end
 end
