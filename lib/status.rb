@@ -61,12 +61,12 @@ module Bot
     end
 
     def x=(new_x)
-      @x = new_x if (0..@world.width).cover? new_x
+      @x = new_x if @world.valid_x?(new_x)
       @x
     end
 
     def y=(new_y)
-      @y = new_y if (0..@world.height).cover? new_y
+      @y = new_y if @world.valid_y?(new_y)
       @y
     end
   end
