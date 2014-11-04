@@ -9,9 +9,6 @@ module Bot
 
     def initialize(world=nil)
       world ||= World.new
-      @x_pos = 0
-      @y_pos = 0
-      @direction = SOUTH
     end
 
     def inspect
@@ -20,6 +17,10 @@ module Bot
       else
         "#{@x_pos},#{@y_pos},#{@direction.upcase}"
       end
+    end
+
+    def place(where)
+      @x_pos, @y_pos, @direction = where.split(',')
     end
   end
 end
