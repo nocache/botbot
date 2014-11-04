@@ -7,7 +7,11 @@ describe Bot do
   end
 
   describe 'movement' do
-    it 'discard all commands in the sequence until a valid PLACE command has been executed'
+    it 'discard all commands in the sequence until a valid PLACE command has been executed' do
+      commands = [ '', 'MOVE', 'NOOP', 'PLACE 10000,0,NORTH', 'PLACE 0,0,NORTH', 'REPORT' ]
+      Bot::Main.start(commands).must_equal '0,0,NORTH'
+    end
+
     it 'MOVE will move the toy robot one unit forward in the direction it is currently facing' do
       commands = [ 'PLACE 0,0,NORTH', 'MOVE', 'REPORT' ]
       Bot::Main.start(commands).must_equal '0,1,NORTH'
