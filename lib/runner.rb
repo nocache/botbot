@@ -2,11 +2,14 @@ require_relative 'errors'
 
 module Bot
   class Runner
-    def self.run(commands, world, state)
-      # main event loop:
-      commands.each do |command|
-        puts command
-        case command
+
+    # main event loop:
+    def self.run(commands, world, state, options={})
+      # ensure commands is an array, so that run can be called with a single command as well
+      Array(commands).each do |command|
+        puts command if options[:debug]
+
+        case command.to_s
         when ''
           # do nothing
 
