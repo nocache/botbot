@@ -23,7 +23,11 @@ describe Bot do
       Bot::Main.start(commands).must_equal '0,0,EAST'
     end
 
-    it 'REPORT will announce the X,Y and F of the robot'
+    it 'REPORT will announce the X,Y and F of the robot' do
+      commands = [ 'PLACE 2,3,WEST', 'REPORT' ]
+      Bot::Main.start(commands).must_equal '2,3,WEST'
+    end
+
     it 'A robot that is not on the table can choose the ignore the MOVE command'
     it 'A robot that is not on the table can choose the ignore the LEFT command'
     it 'A robot that is not on the table can choose the ignore the RIGHT command'
