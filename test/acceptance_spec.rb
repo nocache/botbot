@@ -35,7 +35,7 @@ describe Bot do
 
     it 'robot must not fall off the table during initial placement of the toy robot' do
       state = Bot::Status.new(Bot::Tabletop.new(5,5))
-      state.place('10,2,EAST').x.must_equal 0
+      state.place('10,2,EAST').x.must_be_nil
     end
 
     it 'Any move that would cause the robot to fall must be ignored'
