@@ -10,7 +10,7 @@ module Bot
     def self.start(commands=[], options={})
       world = Tabletop.new(5,5)
       state = Status.new(world)
-      state = Runner.run(commands, world, state)
+      state = Runner.run(commands, state, options)
       state.inspect
     end
   end
