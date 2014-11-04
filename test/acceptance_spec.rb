@@ -28,10 +28,10 @@ describe Bot do
       Bot::Main.start(commands).must_equal '2,3,WEST'
     end
 
-    it 'A robot that is not on the table can choose the ignore the MOVE command'
-    it 'A robot that is not on the table can choose the ignore the LEFT command'
-    it 'A robot that is not on the table can choose the ignore the RIGHT command'
-    it 'A robot that is not on the table can choose the ignore the REPORT command'
+    it 'A robot that is not on the table can choose to ignore the MOVE command'
+    it 'A robot that is not on the table can choose to ignore the LEFT command'
+    it 'A robot that is not on the table can choose to ignore the RIGHT command'
+    it 'A robot that is not on the table can choose to ignore the REPORT command'
 
     it 'robot must not fall off the table during initial placement of the toy robot' do
       state = Bot::Status.new(Bot::Tabletop.new(5,5))
