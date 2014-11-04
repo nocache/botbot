@@ -58,6 +58,10 @@ module Bot
       @direction = coords[2]
       self
     end
+
+    def report
+      inspect
+    end
   end
 end
 
