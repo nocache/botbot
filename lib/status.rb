@@ -3,6 +3,8 @@ module Bot
     attr_accessor :x, :y, :direction
 
     DIRECTIONS = %w{ NORTH EAST SOUTH WEST } # Never Eat Soggy Weetbix. Cardinal points in CW from 12 o'clock
+    CW = 1
+    CCW = -1
 
     def initialize(world=nil)
       @world = world || World.new
@@ -23,15 +25,11 @@ module Bot
     end
 
     def left
-      # left is CCW
-      @direction = DIRECTIONS[ (current_direction_index - 1) % DIRECTIONS.size ]
-      self
+      _rotate(CCW) # left is CCW
     end
 
     def right
-      # right is CW
-      @direction = DIRECTIONS[ (current_direction_index + 1) % DIRECTIONS.size ]
-      self
+      _rotate(CW)  # right is CW
     end
 
     # move 1 unit in direction facing
@@ -68,6 +66,12 @@ module Bot
     def y=(new_y)
       @y = new_y if @world.valid_y?(new_y)
       @y
+    end
+
+    private
+    def _rotate(dir)
+      @direction = DIRECTIONS[ (current_direction_index + dir) % DIRECTIONS.size ]
+      self
     end
   end
 end
