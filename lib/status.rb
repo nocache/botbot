@@ -3,7 +3,7 @@ module Bot
     attr_accessor :x_pos, :y_pos, :direction
 
     def initialize(world=nil)
-      world ||= World.new
+      @world = world || World.new
       self
     end
 
