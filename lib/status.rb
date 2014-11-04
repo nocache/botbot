@@ -34,7 +34,10 @@ module Bot
     end
 
     def place(where)
-      @x_pos, @y_pos, @direction = where.split(',')
+      coords = where.split(',')
+      @x_pos = coords[0].to_i
+      @y_pos = coords[1].to_i
+      @direction = coords[2]
       self
     end
   end
