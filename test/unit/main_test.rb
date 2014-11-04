@@ -1,5 +1,6 @@
 require 'minitest/autorun'
-require_relative '../../bot.rb'
+require_relative '../test_helper.rb'
+require_relative '../../bot'
 
 class MainTest < MiniTest::Unit::TestCase
   def setup
