@@ -26,7 +26,7 @@ module Bot
           state.place($1)
 
         when 'REPORT'
-          puts state.inspect
+          puts state.report
 
         else
           raise Bot::UnknownCommandError
