@@ -10,6 +10,12 @@ module Bot
         when ''
           # do nothing
 
+        when 'LEFT'
+          state.left
+
+        when 'RIGHT'
+          state.right
+
         when 'MOVE'
           state.move
 
