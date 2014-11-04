@@ -1,6 +1,7 @@
 module Bot
   class Status
     attr_accessor :x, :y, :direction
+    alias_method :report, :inspect
 
     DIRECTIONS = %w{ NORTH EAST SOUTH WEST } # Never Eat Soggy Weetbix. Cardinal points in CW from 12 o'clock
 
@@ -57,10 +58,6 @@ module Bot
       @y = coords[1].to_i
       @direction = coords[2]
       self
-    end
-
-    def report
-      inspect
     end
   end
 end
