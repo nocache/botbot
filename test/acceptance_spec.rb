@@ -44,11 +44,8 @@ describe Bot do
     end
 
     it 'Any move that would cause the robot to fall must be ignored' do
-      state = Bot::Status.new
-      state.x = 0
-      state.y = 0
-      state.direction = 'SOUTH'
-      state.move.report.must_equal '0,0,SOUTH'
+      commands = [ 'PLACE 0,0,SOUTH', 'MOVE', 'REPORT' ]
+      Bot::Main.start(commands).must_equal '0,0,SOUTH'
     end
 
     it 'further valid movement commands after suidcidal command must still be allowed' do
