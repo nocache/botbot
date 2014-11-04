@@ -2,9 +2,9 @@ module Bot
   class Status
     attr_accessor :x, :y, :direction
 
-    DIRECTIONS = %w{ NORTH EAST SOUTH WEST } # Never Eat Soggy Weetbix. Cardinal points in CW from 12 o'clock
-    CW = 1
-    CCW = -1
+    DIRECTIONS = %w{ NORTH EAST SOUTH WEST } # Never Eat Soggy Weetbix. Cardinal points CW from 12 o'clock
+    CLOCKWISE = 1
+    ANTI_CLOCKWISE = -1
 
     def initialize(world=nil)
       @world = world || World.new
@@ -25,11 +25,11 @@ module Bot
     end
 
     def left
-      _rotate(CCW) # left is CCW
+      _rotate(ANTI_CLOCKWISE)
     end
 
     def right
-      _rotate(CW)  # right is CW
+      _rotate(CLOCKWISE)
     end
 
     # move 1 unit in direction facing

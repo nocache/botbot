@@ -32,10 +32,12 @@ describe Bot do
       Bot::Main.start(commands).must_equal '2,3,WEST'
     end
 
-    it 'A robot that is not on the table can choose to ignore the MOVE command'
-    it 'A robot that is not on the table can choose to ignore the LEFT command'
-    it 'A robot that is not on the table can choose to ignore the RIGHT command'
-    it 'A robot that is not on the table can choose to ignore the REPORT command'
+    describe 'A robot that is not on the table' do
+      it 'can choose to ignore the MOVE command'
+      it 'can choose to ignore the LEFT command'
+      it 'can choose to ignore the RIGHT command'
+      it 'can choose to ignore the REPORT command'
+    end
 
     it 'robot must not fall off the table during initial placement of the toy robot' do
       Bot::Main.start('PLACE 10,2,EAST').must_be_empty
