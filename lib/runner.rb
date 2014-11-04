@@ -9,10 +9,13 @@ module Bot
         case command
         when ''
           # do nothing
+
         when 'REPORT'
           puts state.inspect
+
         when /^PLACE\s(.+)$/
           state.place($1)
+
         else
           raise Bot::UnknownCommandError
         end
