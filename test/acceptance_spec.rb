@@ -38,8 +38,9 @@ describe Bot do
     it 'A robot that is not on the table can choose to ignore the REPORT command'
 
     it 'robot must not fall off the table during initial placement of the toy robot' do
-      state = Bot::Status.new(Bot::Tabletop.new(5,5))
+      state = Bot::Status.new
       state.place('10,2,EAST').x.must_be_nil
+      state.place('0,-2,EAST').y.must_be_nil
     end
 
     it 'Any move that would cause the robot to fall must be ignored'
