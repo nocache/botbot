@@ -3,5 +3,5 @@
 
 require_relative '../bot.rb'
 
-Bot::Main.start
+Bot::Main.call
  
