@@ -1,5 +1,3 @@
-require_relative 'errors'
-
 module Bot
   class Runner
 
