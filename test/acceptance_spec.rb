@@ -8,7 +8,11 @@ describe Bot do
 
   describe 'movement' do
     it 'discard all commands in the sequence until a valid PLACE command has been executed'
-    it 'MOVE will move the toy robot one unit forward in the direction it is currently facing'
+    it 'MOVE will move the toy robot one unit forward in the direction it is currently facing' do
+      commands = [ 'PLACE 0,0,NORTH', 'MOVE', 'REPORT' ]
+      Bot::Main.start(commands).must_equal '0,1,NORTH'
+    end
+
     it 'LEFT will rotate the robot 90 degrees left without changing the position of the robot'
     it 'RIGHT will rotate the robot 90 degrees right without changing the position of the robot'
     it 'REPORT will announce the X,Y and F of the robot'
