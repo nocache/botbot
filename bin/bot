@@ -4,6 +4,9 @@
 require_relative '../bot.rb'
 
 if STDIN.isatty
+  # if STDIN is a pipe then it's not a tty
+  # we have to do some sort of detection here otherwise ARGF.read will block forever waiting for some data
+
   if ARGV.empty?
     abort <<-_EOAT
 Missing command input ("bot --help" for help)'
@@ -29,4 +32,4 @@ end
 # then send the output to stdout
 puts Bot::Main.call(ARGF.readlines).to_s
 
- 
+
