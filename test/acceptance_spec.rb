@@ -18,7 +18,11 @@ describe Bot do
       Bot::Main.start(commands).must_equal '0,0,WEST'
     end
 
-    it 'RIGHT will rotate the robot 90 degrees right without changing the position of the robot'
+    it 'RIGHT will rotate the robot 90 degrees right without changing the position of the robot' do
+      commands = [ 'PLACE 0,0,NORTH', 'RIGHT', 'REPORT' ]
+      Bot::Main.start(commands).must_equal '0,0,EAST'
+    end
+
     it 'REPORT will announce the X,Y and F of the robot'
     it 'A robot that is not on the table can choose the ignore the MOVE command'
     it 'A robot that is not on the table can choose the ignore the LEFT command'

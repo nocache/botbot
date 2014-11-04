@@ -27,6 +27,12 @@ module Bot
       self
     end
 
+    def right
+      # right is CW
+      @direction = DIRECTIONS[ (current_direction_index + 1) % DIRECTIONS.size ]
+      self
+    end
+
     # move 1 unit in direction facing
     # 0,0 is south-west corner
     def move
