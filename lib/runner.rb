@@ -1,7 +1,7 @@
 module Bot
   class Runner
 
-    # main event loop:
+    # in charge of dispatching commands to the bot
     def self.run(commands, state, options={})
       # ensure commands is an array, so that run can be called with a single command as well
       Array(commands).each do |command|

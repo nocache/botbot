@@ -11,23 +11,10 @@ module Bot
       self
     end
 
-    def to_s
-      if @x.nil? && @y.nil? && @direction.nil?
-        ''
-      else
-        "#{@x},#{@y},#{@direction}"
-      end
-    end
-    alias_method :inspect, :to_s
-
-    def report
-      puts inspect
-      self
-    end
-
-    def current_direction_index
-      DIRECTIONS.index(@direction)
-    end
+    #
+    ## bot command method defs start here:
+    # they are left, right, move, place & report
+    # they are all chainable (return self)
 
     def left
       _rotate(ANTI_CLOCKWISE)
@@ -67,6 +54,15 @@ module Bot
       self
     end
 
+    def report
+      puts inspect
+      self
+    end
+
+    # end of bot command methods.
+
+    # utility methods:
+
     def direction=(new_dir)
       @direction = new_dir if DIRECTIONS.include?(new_dir)
       @direction
@@ -82,7 +78,22 @@ module Bot
       @y
     end
 
+    def to_s
+      if @x.nil? && @y.nil? && @direction.nil?
+        ''
+      else
+        "#{@x},#{@y},#{@direction}"
+      end
+    end
+    alias_method :inspect, :to_s
+
+
     private
+
+    def current_direction_index
+      DIRECTIONS.index(@direction)
+    end
+
     def _rotate(dir)
       @direction = DIRECTIONS[ (current_direction_index + dir) % DIRECTIONS.size ] if @direction
       self
