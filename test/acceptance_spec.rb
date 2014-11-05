@@ -66,4 +66,15 @@ describe Bot do
     Bot::Main.call(commands).to_s.must_equal '4,3,SOUTH'
   end
 
+  describe 'other examples from specification' do
+    it 'does b)' do
+      commands = [ 'PLACE 0,0,NORTH', 'LEFT', 'REPORT' ]
+      Bot::Main.call(commands).to_s.must_equal '0,0,WEST'
+    end
+
+    it 'does c)' do
+      commands = [ 'PLACE 1,2,EAST', 'MOVE', 'MOVE', 'LEFT', 'MOVE', 'REPORT' ]
+      Bot::Main.call(commands).to_s.must_equal '3,3,NORTH'
+    end
+  end
 end
