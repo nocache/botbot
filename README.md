@@ -18,9 +18,15 @@ Getting Started:
 ----------------
 
 run bin/bot from your command line, and supply commands via the file param or stdin
+
 e.g.
+```
   $ bin/bot test_input
+```
 
 specs use MiniTest::Spec, just run:
+```
   $ ruby test/acceptance_spec.rb
+```
+
 or use Guard
